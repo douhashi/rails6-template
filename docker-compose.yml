@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_HOST
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+#  mailcatcher:
+#    image: 'schickling/mailcatcher'
+#    ports:
+#      - "1025:1025"
+#      - "1080:1080"
+#  redis:
+#    image: redis
+#    ports:
+#      - '6379:6379'
+#
+volumes:
+  postgres_data:
+
